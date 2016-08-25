@@ -1264,8 +1264,7 @@ class easy_install(Command):
 
     INSTALL_SCHEMES = dict(
         posix=dict(
-            #install_dir='$base/lib/python$py_version_short/site-packages',
-            install_dir='$base/site-packages',
+            install_dir='$base/lib/python$py_version_short/site-packages',
             script_dir='$base/bin',
         ),
     )
@@ -1310,16 +1309,11 @@ def get_site_dirs():
             if sys.platform in ('os2emx', 'riscos'):
                 sitedirs.append(os.path.join(prefix, "Lib", "site-packages"))
             elif os.sep == '/':
-                """
                 sitedirs.extend([os.path.join(prefix,
                                               "lib",
                                               "python" + sys.version[:3],
                                               "site-packages"),
                                  os.path.join(prefix, "lib", "site-python")])
-                """
-                sitedirs.extend(
-                    [prefix, os.path.join(prefix, "lib", "site-packages")]
-                )
             else:
                 sitedirs.extend(
                     [prefix, os.path.join(prefix, "lib", "site-packages")]

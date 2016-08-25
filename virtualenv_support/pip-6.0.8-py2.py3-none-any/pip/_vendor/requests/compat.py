@@ -60,10 +60,9 @@ _ver = sys.version.lower()
 is_pypy = ('pypy' in _ver)
 is_jython = ('jython' in _ver)
 is_ironpython = ('iron' in _ver)
-is_pyston = "Pyston" in sys.version
 
 # Assume CPython, if nothing else.
-is_cpython = not any((is_pypy, is_jython, is_ironpython, is_pyston))
+is_cpython = not any((is_pypy, is_jython, is_ironpython))
 
 # Windows-based system.
 is_windows = 'win32' in str(sys.platform).lower()
